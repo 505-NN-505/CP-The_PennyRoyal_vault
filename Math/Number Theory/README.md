@@ -60,7 +60,7 @@ for i = 1 to n
 	```
 
 ## Product of Divisors
-- The product of factors of n is $$\mu(n)=n^{\frac{\displaystyle\tau(n)}{\displaystyle2}}$$
+- The product of factors of $n$ is $$\mu(n)=n^{\frac{\displaystyle\tau(n)}{\displaystyle2}}$$
 - The reason is we can form $\frac{\tau(n)}{2}$ pairs of factors, each with product n. For example, the factors of 24 produce the pairs: $1.24, 2.12, 3.8, 4.6$. The product of divisors is: $24^4$
 - If $n$ is a squared number, then the product of divisors is: $n^{\frac{\displaystyle\tau(n)}{\displaystyle2}}.\sqrt{n}$
 
