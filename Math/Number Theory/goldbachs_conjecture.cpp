@@ -16,8 +16,8 @@ code n drink Pennyroyal tea
 using namespace std;
 
 const int nmax = 2e5 + 1;
-
 bool mark[(nmax >> 1) + 1];
+
 void sieve(int n) {
     mark[0] = true;
     for (int i = 3; i * i <= n; i += 2) {
