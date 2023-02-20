@@ -43,11 +43,6 @@ $$n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_k^{\alpha_k}$$
 - Only the square numbers have odd number of divisors.
 - **Upper bound** of the number of divisors of a number $n$ is: $$\tau(n) \approx 2\sqrt[3]{n}$$
 - All the values of $\tau$ upto $n$ can be preprocessed with the idea of sieve.
-  ```cpp
-  for i = 1 to n
-	  for j = i, upto n, j += i
-		  tau[j]++
-	```
 
 ## Sum of Divisors
 - The sum of factors of 24 is $\Rightarrow$ 1 + 2 + 3 + 4 + 6 + 8 + 12 + 24
@@ -55,12 +50,7 @@ $$n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_k^{\alpha_k}$$
 						$\Rightarrow$ $3^0(2^0+2^1+2^2+2^3) + 3^1(2^0+2^1+2^2+2^3)$
 						$\Rightarrow$ $(2^0+2^1+2^2+2^3).(3^0+3^1)$
 - The sum of factors of a number n is $$\sigma(n)=\Pi_{i=1}^k(1+p_i+p_i^2+...+p_i^{\alpha^i})=\Pi_{i=1}^k\frac{p_i^{\alpha_i+1}-1}{p_i - 1}$$
-- $\sigma$ can be preprocessed with the idea of sieve:
-  ```cpp
-for i = 1 to n
-	for j = i, upto n, j += i
-		sigma[j] += i
-	```
+- $\sigma[n]$ can be preprocessed for $[1, n]$ with the idea of sieve.
 
 ## Product of Divisors
 - The product of factors of $n$ is $$\mu(n)=n^{\frac{\displaystyle\tau(n)}{\displaystyle2}}$$
