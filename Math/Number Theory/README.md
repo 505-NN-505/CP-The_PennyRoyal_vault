@@ -94,7 +94,7 @@ $$
 - Number $a$ and $b$ are coprime if $gcd(a, b) = 1$.
 - For a prime number $p$, $\phi(p)=p - 1$.
 - For $p^\alpha$, $\phi(p^\alpha)=p^\alpha-\frac{\displaystyle p^\alpha}{\displaystyle p}=p^\alpha(1 - \frac{\displaystyle 1}{\displaystyle p})$
-	- For example, $n = 9 = 3^2$. Upto $9$, there are $\frac{9}{3}=3$ numbers, $\{3, 6, 9\}$, that are not coprime with 8. All the $9 - \frac{9}{3} = 6$ numbers are coprime with $9$.
+	- For example, $n = 9 = 3^2$. Upto $9$, there are $\frac{9}{3}=3$ numbers, $\{3, 6, 9\}$, that are not coprime with 9. All the other, $9 - \frac{9}{3} = 6$ numbers are coprime with $9$.
 - For any number n, we can find its prime factorization $n = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$. Then we can express the formula as $$\phi(n)=\Pi_{i=1}^k\ p_i^\alpha(1 - \frac{1}{p_i})$$
 - We also can use the idea of sieve, and iterate the multiples of prime $p$ and precalculate the $\phi[n]$ array for $n$ numbers.
 
@@ -108,5 +108,7 @@ $$
 - Overall, the space complexity has become $O(n / 64)$.
 
 ### Ranged Sieve
-- It can find primes in a range $[l, r]$ where $1 \le l < r \le 10^9$ and $r - l \le 10^7$.
-- To be learnt...
+- It can find primes in the range $[l, r]$ where $1 \le l < r \le 10^9$ and $r - l \le 10^7$.
+- Basically we need to find primes upto $r$. So the outer loop of sieve will run upto $\sqrt r$ times.
+- In case of finding the multiples of prime $p$, we need to mark only the multples greater than equal $l$. $max(i*i, \lceil \frac{\displaystyle l}{\displaystyle i} \rceil *i)$ will ensure that the multples are checked both efficiently and greater the lower range.
+- In case of indexing, $i - l$ will be the index and the size of the array will be $r - l + 1$.
