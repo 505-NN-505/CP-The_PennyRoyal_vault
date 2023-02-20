@@ -110,5 +110,5 @@ $$
 ### Ranged Sieve
 - It can find primes in the range $[l, r]$ where $1 \le l < r \le 10^9$ and $r - l \le 10^7$.
 - Basically we need to find primes upto $r$. So the outer loop of sieve will run upto $\sqrt r$ times.
-- In case of finding the multiples of prime $p$, we need to mark only the multples greater than equal $l$. $max(i*i, \lceil \frac{\displaystyle l}{\displaystyle i} \rceil *i)$ will ensure that the multples are checked both efficiently and greater the lower range.
+- In case of finding the multiples of prime $p$, we need to mark only the multples greater than equal $l$. $max(i*i, \lceil \frac{\displaystyle l}{\displaystyle i} \rceil *i)$ will ensure that the multples are checked both efficiently and greater equal than the left boundary.
 - In case of indexing, $i - l$ will be the index and the size of the array will be $r - l + 1$.
