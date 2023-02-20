@@ -107,3 +107,6 @@ $$
 - Also we don't need to store all the even numbers, as there is only 1 even prime number, that is $2$.
 - Overall, the space complexity has become $O(n / 64)$.
 
+### Ranged Sieve
+- It can find primes in a range $[l, r]$ where $1 \le l < r \le 10^9$ and $r - l \le 10^7$.
+- To be learnt...
