@@ -103,7 +103,7 @@ $$
 
 ### Bitwise Sieve
 - Memory efficient sieve that can generate primes upto $10^8$.
-- The optimization here is, instead of using a 1 byte variable for marking each number, we can use the bits. Integer in C/C++ has 32 bits/4bytes. We can use all the 32 bits to represent 32 numbers by using bitmasking.
+- The optimization here is, instead of using a 1 byte variable for marking each number, we can use the bits. Integer in C/C++ has 32 bits. We can use all the 32 bits to represent 32 numbers by using bitmasking.
 - Also we don't need to store all the even numbers, as there is only 1 even prime number, that is $2$.
 - Overall, the space complexity has become $O(n / 64)$.
 
