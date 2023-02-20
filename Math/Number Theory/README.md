@@ -14,14 +14,17 @@
 - The sieve of Eratosthenes is a preprocessing algorithm which builds an array to check a number is a prime or not efficiently.
 - The algorithm iterates through the numbers $[2, n]$ one by one. Whenever a prime $p$ is found, the algorithm marks that the multiples of $p (2p, 3p, 4p,...)$ are not primes as p divides each of them.
 - For example if n = 20, the array is:
+  
 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 |
 | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
 | 0 | 0 | 2 | 0 | 3 | 0 | 2 | 3 | 5 | 0 | 3 | 0 | 2 | 5 | 2 | 0 | 3 | 0 | 5 |
+
 - The numbers having flag 0 are the primes, $\{2, 3, 5, 7, 11, 13, 17, 19\}$.
 
 ## Smallest Prime Factor
 - The smallest number greater than 1 that divides n is always a prime.
 - The spf array for $n = 20$ looks like this:
+
 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 |
 | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
 | 2 | 3 | 2 | 5 | 2 | 7 | 2 | 3 | 5 | 11 | 2 | 13 | 2 | 3 | 2 | 17 | 2 | 19 | 2 |
