@@ -13,8 +13,8 @@ $$(x * y)\ mod\ m = (x\ mod\ m\ * \ y\ mod\ m)\ mod\ m$$
 $$x^n\ mod\ m=
 \begin{cases}
 1\ \ mod\ m & n = 0\\
-x^{n/2}*x^{n/2}\ \ mod\ m & n\ even\\
-x*x^{n-1}\ \ mod\ m & n\ odd
+{x^{n/2}}*{x^{n/2}}\ \ mod\ m & n\ even\\
+{x}*{x^{n-1}}\ \ mod\ m & n\ odd
 \end{cases}
 $$
 ## Fermat's Theorem
