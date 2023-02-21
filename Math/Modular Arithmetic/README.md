@@ -13,8 +13,8 @@ $$(x * y)\ mod\ m = (x\ mod\ m\ * \ y\ mod\ m)\ mod\ m$$
 $$x^n\ mod\ m=
 \begin{cases}
 1\ \ mod\ m & n = 0\\
-{x^{n/2}}*{x^{n/2}}\ \ mod\ m & n\ even\\
-{x}*{x^{n-1}}\ \ mod\ m & n\ odd
+{x^{n/2}}.{x^{n/2}}\ \ mod\ m & n\ even\\
+{x}.{x^{n-1}}\ \ mod\ m & n\ odd
 \end{cases}
 $$
 ## Fermat's Theorem
@@ -25,7 +25,7 @@ $$
 - It's a general form of Fermat's Theorem, because if x is a prime, then $\phi(m)=m - 1$.
 
 ## Modular Inverse
-- The inverse of $x\ mod\ m$ is a number $x^{-1}$ such that $$xx^{-1}\ mod\ m=1$$
+- The inverse of $x\ mod\ m$ is a number $x^{-1}$ such that $$x.x^{-1}\ mod\ m=1$$
 - For example, to evaluate $\frac{36}{6}\ mod\ 17$
 	- $36\ mod\ 17=2$
 	- $6^{-1}\ mod\ 17=3$
