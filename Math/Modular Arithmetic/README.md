@@ -65,6 +65,7 @@ $$
 - Lets assume the coefficients for call $(b, a\ mod\ b)$ are $x_1$ and $y_1$: $$b.x_1+(a\ mod\ b).y_1=g$$ $$b.x_1+\left(a-\left\lfloor\frac{a}{b}\right\rfloor.b\right).y_1=g$$  $$b.x_1+\left(a.y_1-b.y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)=g$$
 $$a.y_1+b\left(x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)=g$$
 - We have found the values for $\{x, y\}$: 
+
 $$
 \begin{cases}
 x=y_1\\y=x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor
@@ -120,5 +121,6 @@ x_1 &= x_1\frac{c}{g}+k.\frac{b}{g}\\
 y_1 &= y_1\frac{c}{g}-k.\frac{a}{g}
 \end{align}
 $$
+
 {to be learnt...}
 ## Chinese Remainder Theorem
