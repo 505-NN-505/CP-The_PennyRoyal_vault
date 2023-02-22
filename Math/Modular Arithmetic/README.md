@@ -27,16 +27,16 @@ $$
 - It's a general form of Fermat's Theorem, because if x is a prime, then $\phi(m)=m - 1$.
 
 ## Modulo Inverse (Prime)
-- The inverse of $x\ mod\ m$ is a number $x^{-1}$ such that $$(x.x^{-1})\ mod\ m=1$$
+- The inverse of $a\ mod\ m$ is a number $a^{-1}$ such that $$(a.a^{-1})\ mod\ m=1$$
 - For example, to evaluate $\frac{36}{6}\ mod\ 17$
 	- $36\ mod\ 17=2$
 	- $6^{-1}\ mod\ 17=3$
 	- the final result is $(2*3)\ mod\ 17$
-- However if $gcd(x,\ m) \neq 1$, mod inverse doesn't exist. For example
-	- $x = 2, m = 4 \Rightarrow$ the equation $(x.x^{-1})\ mod\ m$ cannot be solved, because all the multiples of 2 are even and the remainder can never be 1.
-- Only when $x$ and $m$ are coprime, mod inverse of $x$ under modulo $m$ exists.
-- If we compare, modular inverse equation with Euler's Theorem $x^{\phi(m)}\ mod\ m=1$, $$x^{-1}=x^{\phi(m)-1}$$
-- If $m$ is a prime, the formula becomes, $$x^{-1}=x^{m-2}$$
+- However if $gcd(a,\ m) \neq 1$, mod inverse doesn't exist. For example
+	- $a = 2, m = 4 \Rightarrow$ the equation $(a.a^{-1})\ mod\ m$ cannot be solved, because all the multiples of 2 are even and the remainder can never be 1.
+- Only when $a$ and $m$ are coprime, mod inverse of $a$ under modulo $m$ exists.
+- If we compare, modular inverse equation with Euler's Theorem $x^{\phi(m)}\ mod\ m=1$, $$a^{-1}=x^{\phi(m)-1}$$
+- If $m$ is a prime, the formula becomes, $$a^{-1}=a^{m-2}$$
 ## Euclid's Algorithm
 $$ gcd(a, b)=
 \begin{cases}
@@ -60,11 +60,16 @@ $$
 - It states that any linear diophantine equation will have solution for $x$ and $y$, if and only if, $gcd(a,b)\ |\ c$.
 
 ## Extended Eulcild's Algorithm
-- Extended Euclid's Algortihm solves the linear following linear diophantine equation: $$a.x+b.y=g\ \ \ [where\ g=gcd(a,b)]$$
+- Extended Euclid's Algortihm solves the following linear diophantine equation: $$a.x+b.y=g\ \ \ [where\ g=gcd(a,b)]$$
 - The algorithm is simple. Euclidean's Algorithm's base case was, $(b == 0) \rightarrow g = a$. Since $(a == g\ and\ b == 0) \rightarrow \{x, y\} = \{1, 0\}$. Extended algorithm finds out how $x$ and $y$ changes to go from this base case to the upper calls, $gcd(a, b)$ to $gcd(b, a\ mod\ b)$.
 - Lets assume the coefficients for call $(b, a\ mod\ b)$ are $x_1$ and $y_1$: $$b.x_1+(a\ mod\ b).y_1=g$$ $$b.x_1+\left(a-\left\lfloor\frac{a}{b}\right\rfloor.b\right).y_1=g$$  $$b.x_1+\left(a.y_1-b.y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)=g$$
 $$a.y_1+b\left(x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)=g$$
-- We have found the values for $\{x, y\}$: $$\begin{cases} x=y_1\\y=x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor \end{cases}$$
+- We have found the values for $\{x, y\}$: 
+$$
+\begin{cases}
+x=y_1\\y=x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor
+\end{cases}
+$$
 ## Modulo Inverse
 $$(a.x)\ mod\ m=1\ \ \ [where\ x=a^{-1}]$$
 - We know how to find the inverse of $x\ mod\ m$, $a = x^{-1}$ if $m$ is a prime. Converting the modulo inverse equation into Linear Diophantine Equation and using Extended Euclidean's Algorithm will allow us to find modulo inverse under any $m$.
@@ -72,6 +77,45 @@ $$(a.x)\ mod\ m=1\ \ \ [where\ x=a^{-1}]$$
 - We can see that the equation is in form of a Linear Diophantine Equation where the $gcd(a, -m) = 1$. It's again shown that modulo inverse doesn't exist if $gcd(a, m) \neq 1$.
 - Here $x$ is the modulo inverse which we can find using the Extended Eulcidean Algorithm.
 
+## Solving Linear Diophantine Equations
+$$a.x+b.y=c$$
+- We know that $g = gcd(a, b)\ |\ c$ has to be satisfied to solve any Linear Diophantine Equation.
+- Extended Euclid's Algorithm will help us to solve this equation. We can convert the equation of the Extended Euclid's Algorithm to Linear Diphantine Equation in the following way:
+
+$$
+\begin{align}
+a.x+b.y&=g\\
+a.x.\frac{c}{g}+b.y.\frac{c}{g}&=c
+\end{align}
+$$
+- Extended Euclid's Algorithm will give us a solution $\{x_1, y_1\}$. The final solution is:
+
+$$
+\begin{align}
+x_1 &= x_1\frac{c}{g}\\
+y_1 &= y_1\frac{c}{g}
+\end{align}
+$$
+- Linear Diophantine Equations have infinite solutions if $gcd(a, b)\ |\ c$. They can also be found in the following way:
+$$
+\begin{align}
+a.x+b.y&=g\\
+a.x+b.y+\frac{a.b}{g}-\frac{a.b}{g}&=g\\
+a\left(x+\frac{b}{g}\right)+b\left(y-\frac{a}{g}\right)&=g
+\end{align}
+$$
+- The same way, we can write:
+$$
+\begin{align}
+a\left(x+k.\frac{b}{g}\right)+b\left(y-k.\frac{a}{g}\right)&=g\ \ \ [where\ k\  \epsilon\ [0, \infty)]
+\end{align}
+$$
+- The general solution is:
+$$
+\begin{align}
+x_1 &= x_1\frac{c}{g}+k.\frac{b}{g}\\
+y_1 &= y_1\frac{c}{g}-k.\frac{a}{g}
+\end{align}
+$$
 {to be learnt...}
-## Solving Diophantine Equations
 ## Chinese Remainder Theorem
