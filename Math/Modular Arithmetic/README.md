@@ -4,11 +4,13 @@
 
 ## Arithmetic Operations
 
-$$(x + y)\ mod\ m = (x\ mod\ m\ +\ y\ mod\ m)\ mod\ m$$
-
-$$(x - y)\ mod\ m = (x\ mod\ m-y\ mod\ m + m)\ mod\ m$$
-
-$$(x * y)\ mod\ m = (x\ mod\ m\ * \ y\ mod\ m)\ mod\ m$$
+$$
+\begin{align}
+(x + y)\ mod\ m &= (x\ mod\ m\ +\ y\ mod\ m)\ mod\ m\\
+(x - y)\ mod\ m &= (x\ mod\ m-y\ mod\ m + m)\ mod\ m\\
+(x * y)\ mod\ m &= (x\ mod\ m\ * \ y\ mod\ m)\ mod\ m
+\end{align}
+$$
 
 ## Modular Exponentiation
 
@@ -62,19 +64,36 @@ $$
 ## Extended Eulcild's Algorithm
 - Extended Euclid's Algortihm solves the following linear diophantine equation: $$a.x+b.y=g\ \ \ [where\ g=gcd(a,b)]$$
 - The algorithm is simple. Euclidean's Algorithm's base case was, $(b == 0) \rightarrow g = a$. Since $(a == g\ and\ b == 0) \rightarrow \{x, y\} = \{1, 0\}$. Extended algorithm finds out how $x$ and $y$ changes to go from this base case to the upper calls, $gcd(a, b)$ to $gcd(b, a\ mod\ b)$.
-- Lets assume the coefficients for call $(b, a\ mod\ b)$ are $x_1$ and $y_1$: $$b.x_1+(a\ mod\ b).y_1=g$$ $$b.x_1+\left(a-\left\lfloor\frac{a}{b}\right\rfloor.b\right).y_1=g$$  $$b.x_1+\left(a.y_1-b.y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)=g$$
-$$a.y_1+b\left(x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)=g$$
+- Lets assume the coefficients for call $(b, a\ mod\ b)$ are $x_1$ and $y_1$:
+
+$$
+\begin{align}
+b.x_1+(a\ mod\ b).y_1&=g\\
+b.x_1+\left(a-\left\lfloor\frac{a}{b}\right\rfloor.b\right).y_1&=g\\
+b.x_1+\left(a.y_1-b.y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)&=g\\
+a.y_1+b\left(x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor\right)&=g\\
+\end{align}
+$$
+
 - We have found the values for $\{x, y\}$: 
 
 $$
 \begin{cases}
-x=y_1\\y=x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor
+x=y_1\\
+y=x_1-y_1.\left\lfloor\frac{a}{b}\right\rfloor
 \end{cases}
 $$
 ## Modulo Inverse
 $$(a.x)\ mod\ m=1\ \ \ [where\ x=a^{-1}]$$
 - We know how to find the inverse of $x\ mod\ m$, $a = x^{-1}$ if $m$ is a prime. Converting the modulo inverse equation into Linear Diophantine Equation and using Extended Euclidean's Algorithm will allow us to find modulo inverse under any $m$.
-- For $\frac{a.x}{m}$, let quotient y. Then the remainder of this fraction, $(a.x)\ mod\ m=1$ $\Rightarrow$ $a.x-m.y$. Putting this into our modulo inverse equation: $$a.x-m.y=1$$ $$a.x+(-m).y=1$$
+- For $\frac{a.x}{m}$, let quotient y. Then the remainder of this fraction, $(a.x)\ mod\ m=1$ $\Rightarrow$ $a.x-m.y$. Putting this into our modulo inverse equation: 
+
+$$
+\begin{align}
+a.x-m.y&=1\\
+a.x+(-m).y&=1
+\end{align}
+$$
 - We can see that the equation is in form of a Linear Diophantine Equation where the $gcd(a, -m) = 1$. It's again shown that modulo inverse doesn't exist if $gcd(a, m) \neq 1$.
 - Here $x$ is the modulo inverse which we can find using the Extended Eulcidean Algorithm.
 
