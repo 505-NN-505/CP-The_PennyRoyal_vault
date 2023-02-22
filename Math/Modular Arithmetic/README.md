@@ -97,6 +97,7 @@ y_1 &= y_1\frac{c}{g}
 \end{align}
 $$
 - Linear Diophantine Equations have infinite solutions if $gcd(a, b)\ |\ c$. They can also be found in the following way:
+
 $$
 \begin{align}
 a.x+b.y&=g\\
@@ -105,12 +106,14 @@ a\left(x+\frac{b}{g}\right)+b\left(y-\frac{a}{g}\right)&=g
 \end{align}
 $$
 - The same way, we can write:
+
 $$
 \begin{align}
 a\left(x+k.\frac{b}{g}\right)+b\left(y-k.\frac{a}{g}\right)&=g\ \ \ [where\ k\  \epsilon\ [0, \infty)]
 \end{align}
 $$
 - The general solution is:
+
 $$
 \begin{align}
 x_1 &= x_1\frac{c}{g}+k.\frac{b}{g}\\
