@@ -76,19 +76,6 @@ $$n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_k^{\alpha_k}$$
 	- **Twin Prime Conjecture**: There is an infinite number of pairs of the form $\{p, p + 2\}$, where both $p$ and $p + 2$ are primes.
 	- **Legendre's Conjecture**: There is always a prime between numbers $n^2$ and $(n + 1)^2$, where $n$ is a positive integer.
 
-## Euclid's Algorithm
-$$ gcd(a, b)=
-\begin{cases}
-	a & b = 0\\
-	gcd(b, a\ mod\ b) & b \neq a
-\end{cases}
-$$
-- Let $d = gcd(a, b)$.
-- $(d\ |\ a$ and $d\ |\ b)$ $\rightarrow$ $d\ |\ (a - b)$, assuming a >= b.
-- As $d\ |\ (a - b)$ then $gcd(a, b) = gcd(a - b, b)$.
-- In the same way, we can say, $gcd(a, b) = gcd(a - m*b, b)$, assuming $a >= m*b$
-- $gcd(a - m * b, b) = gcd(a\ mod\ b, b) = gcd(a, b)$
-
 ## Euler's Totient Function
 - Euler's totient function $\phi(n)$ gives the count of numbers that are coprime to $n$ in $[1, n]$.
 - Number $a$ and $b$ are coprime if $gcd(a, b) = 1$.
