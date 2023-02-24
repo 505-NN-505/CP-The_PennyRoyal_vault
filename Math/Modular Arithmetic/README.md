@@ -91,7 +91,7 @@ $$(a.x)\ mod\ m=1\ \ \ [where\ x=a^{-1}]$$
 $$
 \begin{align}
 a.x-m.y&=1\\
-a.x+(-m).y&=1
+a.x+m.(-1)y&=1
 \end{align}
 $$
 - We can see that the equation is in form of a Linear Diophantine Equation where the $gcd(a, -m) = 1$. It's again shown that modulo inverse doesn't exist if $gcd(a, m) \neq 1$.

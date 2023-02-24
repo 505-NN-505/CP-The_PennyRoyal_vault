@@ -14,25 +14,24 @@ code n drink Pennyroyal tea
 #endif
 
 using namespace std;
-using ll = long long;
 
 const int mod = 1000000007;
 
-int power(ll x, ll n, const int m) {
-    int res = 1 % m;
-    x %= m;
-    if (x < 0) x += m;
-    while (n) {
-        if (n & 1) res = (1ll * res * x) % m;
-        x = (1ll * x * x) % m;
-        n >>= 1;
-    }
-    return res;
+int egcd(int a, int b, int& x, int& y) {
+	if (b == 0) {
+    	x = 1, y = 0;
+		return a;
+	}
+	int x1, y1, d;
+	d = egcd(b, a % b, x1, y1);
+	x = y1, y = x1 - y1 * (a / b);
+	return d;
 }
 
 void solve(void) {
-	ll a = 6;
-	cerr << power(a, mod - 2, mod) << '\n'; // 166666668
+	int a = 6, inv, y;
+	egcd(a, mod, inv, y); // 166666668
+	cerr << inv << '\n';
 }
 
 signed main(void) {
