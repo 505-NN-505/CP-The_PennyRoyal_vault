@@ -28,15 +28,26 @@ int egcd(int a, int b, int& x, int& y) {
 	return d;
 }
 
-pair<int, int> diophantine(int a, int b, int c) {
-	int x, y, g = egcd(a, b, x, y);
-	x *= c / g, y *= c / g;
+// returns the kth solution of ax+by=c
+/*
+12x+98y=c
+0th solution, (x, y) = (-240, 30)
+1st solution, (x, y) = (1230, -150)
+2nd solution, (x, y) = (2700, -330)
+3rd solution, (x, y) = (4170, -510)
+*/
+pair<int, int> diophantine(int a, int b, int c, int k) {
+	int x, y, g = egcd(abs(a), abs(b), x, y);
+	x += k * (b / g), x *= c / g;
+	y -= k * (a / g), y *= c / g;
+	if (a < 0) x *= -1;
+	if (b < 0) y *= -1;
 	return {x, y};
 }
 
 void solve(void) {
 	int a = 12, b = 98, c = 60;
-	auto sol = diophantine(a, b, c);
+	auto sol = diophantine(a, b, c, 3);
 	cerr << sol.first << ' ' << sol.second << '\n';
 }
 
