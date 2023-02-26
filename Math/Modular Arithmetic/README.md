@@ -25,7 +25,9 @@ $$
 - The theorem states that if $x$ is a prime and $gcd(x, m) = 1$, then: $$x^{m - 1}\ mod\ m = 1$$
 - More generally: $$x^k\ mod\ m=x^{k\ mod\ (m-1)}\ mod\ m$$
 	**Proof:**
-	Let  $k=a*(m - 1)+r.$ Then: $$
+	Let  $k=a*(m - 1)+r.$ Then: 	
+	
+	$$
   \begin{align}
 	  x^k\ mod\ m&=x^{a*(m - 1)+r}\ mod\ m\\
 	   &=(x^{m - 1})^a.x^r\ mod\ m \ \ \ \ [y^{ab}=(y^a)^b,\ y^{a+b}=y^a.y^b]\\
