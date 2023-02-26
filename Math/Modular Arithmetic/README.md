@@ -24,6 +24,17 @@ $$
 ## Fermat's Theorem
 - The theorem states that if $x$ is a prime and $gcd(x, m) = 1$, then: $$x^{m - 1}\ mod\ m = 1$$
 - More generally: $$x^k\ mod\ m=x^{k\ mod\ (m-1)}\ mod\ m$$
+	**Proof:**
+	Let  $k=a*(m - 1)+r.$ Then: $$
+  \begin{align}
+	  x^k\ mod\ m&=x^{a*(m - 1)+r}\ mod\ m\\
+	   &=(x^{m - 1})^a.x^r\ mod\ m \ \ \ \ [y^{ab}=(y^a)^b,\ y^{a+b}=y^a.y^b]\\
+	   &=1^a.x^r\ mod\ m \ \ \ \ \ \ \ \ \ \ \ \ \ \ [using\ fermat's]\\
+	   &=x^r\ mod\ m\\
+	   &=x^{k\ mod\ (m - 1)}\ mod\ m\ \ \ \ [r=k-a*(m - 1)=k\ mod\ (m - 1)]
+  \end{align}
+ $$
+
 ## Euler's Theorem
 - The theorem states that if $gcd(x, m)=1$, then: $$x^{\phi(m)}\ mod\ m=1$$
 - It's a general form of Fermat's Theorem, because if x is a prime, then $\phi(m)=m - 1$.
