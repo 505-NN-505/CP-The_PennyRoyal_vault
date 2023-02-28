@@ -110,15 +110,15 @@ $$
 - Given $n$ and $r$, we have to find out the number of solutions the equation has.
 
 $$
-*.*.*.*.*.*.*.*.*
+{*.*.*.*.*.*.*.*.*}
 $$
 
 $$
-***\ |**\ |**\ |**\ \ \rightarrow\ \ 3+2+2+2=9
+{***\ |**\ |**\ |**\ \ \rightarrow\ \ 3+2+2+2=9}
 $$
 
 $$
-*\ |*****\ |*\ |**\ \ \rightarrow\ \ 1+5+1+2=9
+{*\ |*****\ |*\ |**\ \ \rightarrow\ \ 1+5+1+2=9}
 $$
 
 - For example, $n=9, r=4$, we can think there are $8\ stars$. Then there are $n - 1=8$ spaces where we have to put $r-1=3$ bars. We can compare the bars with $+$ sign and the chunk of stars with $x_i$.
