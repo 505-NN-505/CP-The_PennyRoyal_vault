@@ -40,9 +40,9 @@ $$n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_k^{\alpha_k}$$
 ## Number of Divisors
 - The number of factors of a number n is $$\tau(n) = \Pi_{i = 1}^k(\alpha_i + 1)$$
 - Because for each prime $p_i$, there are $\alpha + 1$ ways to choose how many times it appears in the divisors.
-- Only the square numbers have odd number of divisors.
+- Only the square numbers have the odd number of divisors.
 - **Upper bound** of the number of divisors of a number $n$ is: $$\tau(n) \approx 2\sqrt[3]{n}$$
-- All the values of $\tau$ upto $n$ can be preprocessed with the idea of sieve.
+- All the values of $\tau$ up to $n$ can be preprocessed with the idea of sieve.
 
 ## Sum of Divisors
 - The sum of factors of 24 is $\Rightarrow$ 1 + 2 + 3 + 4 + 6 + 8 + 12 + 24
@@ -53,12 +53,12 @@ $$n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_k^{\alpha_k}$$
 - $\sigma[n]$ can be preprocessed for $[1, n]$ with the idea of sieve.
 
 ## Product of Divisors
-- The product of factors of $n$ is $$\mu(n)=n^{\frac{\displaystyle\tau(n)}{\displaystyle2}}$$
+- The product of factors of $n$ is $$pr(n)=n^{\frac{\displaystyle\tau(n)}{\displaystyle2}}$$
 - The reason is we can form $\frac{\tau(n)}{2}$ pairs of factors, each with product n. For example, the factors of 24 produce the pairs: $1.24, 2.12, 3.8, 4.6$. The product of divisors is: $24^4$
 - If $n$ is a squared number, then the product of divisors is: $n^{\frac{\displaystyle\tau(n)}{\displaystyle2}}.\sqrt{n}$
 
 ## Multiplicative Functions
-- A multiplicative function is function $f(x)$ which satisfies $f(a.b)=f(a).f(b)$ if $a$ and $b$ are coprime.
+- A multiplicative function is a function $f(x)$ which satisfies $f(a.b)=f(a).f(b)$ if $a$ and $b$ are coprime.
 - Both $\tau(n)$ and $\sigma(n)$ are multiplicative functions.
 
 ## Number of Primes
@@ -68,7 +68,7 @@ $$n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_k^{\alpha_k}$$
 - The density of primes means how often there are primes among the numbers.
 - Let $\pi(n)$ denote the number of primes between 1 to n. For example, $\pi(10)=4$ because there are 4 primes in [1, 10].
 - It's possible to show that $$\pi(n) \approx \frac{n}{\ln n}$$
-- The primes are quite frequent. For example $\pi(10^6)=78498$ and $\frac{10^6}{\ln 10^6}\approx 72382$.
+- The primes are quite frequent. For example, $\pi(10^6)=78498$ and $\frac{10^6}{\ln 10^6}\approx 72382$.
 
 ## Conjectures
 - There are many conjectures involving primes. Many people think that they are true, but nobody has been able to prove them.
@@ -81,10 +81,21 @@ $$n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_k^{\alpha_k}$$
 - Number $a$ and $b$ are coprime if $gcd(a, b) = 1$.
 - For a prime number $p$, $\phi(p)=p - 1$.
 - For $p^\alpha$, $\phi(p^\alpha)=p^\alpha-\frac{\displaystyle p^\alpha}{\displaystyle p}=p^\alpha(1 - \frac{\displaystyle 1}{\displaystyle p})$
-	- For example, $n = 9 = 3^2$. Upto $9$, there are $\frac{9}{3}=3$ numbers, $\{3, 6, 9\}$, that are not coprime with 9. All the other, $9 - \frac{9}{3} = 6$ numbers are coprime with $9$.
+	- For example, $n = 9 = 3^2$. Up to $9$, there are $\frac{9}{3}=3$ numbers, $\{3, 6, 9\}$, that are not coprime with 9. All the other, $9 - \frac{9}{3} = 6$ numbers are coprime with $9$.
 - For any number n, we can find its prime factorization $n = p_1^{\alpha_1}p_2^{\alpha_2}...p_k^{\alpha_k}$. Then we can express the formula as $$\phi(n)=\Pi_{i=1}^k\ p_i^\alpha(1 - \frac{1}{p_i})$$
 - We also can use the idea of sieve, and iterate the multiples of prime $p$ and precalculate the $\phi[n]$ array for $n$ numbers.
 
+## Möbius Function
+- It is a number theoretic function defined by
+
+$$
+\mu(n)=
+\begin{cases}
+0 & if\ any\ prime\ factor\ is\ repeated \\
+1 & n\ is\ odd \\
+-1 & n\ is\ even
+\end{cases}
+$$
 
 ## Efficient Primality Checkers
 
