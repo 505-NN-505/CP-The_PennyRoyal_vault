@@ -114,7 +114,7 @@ $$C_n=\sum^{n-1}_{i=0}C_iC_{n-i-1}$$
 - If there are $n$ left parentheses and $n$ right parentheses in an expression, then there are $(2n)C(n)$ ways to construct a parenthesis expression (not necessary valid).
 - We can count the number of invalid parentheses expressions. For an expression to be invalid, there has to a prefix in which the number of right parenthesis is greater than the number of left parenthesis.
 	- Now, if we swap the left and right parenthesis in the prefix, there will be n + 1 left parenthesis and n - 1 right parenthesis.
-	- For example, **())**)() has $2 (s$ and $4)$s. It has a prefix $())$ where the number of right parenthesis is greater than the number of left parenthesis. If we swap each of them, then the expression will be **)((**)(). There are $2+1=3$ $(s$ and $4-1=3$ $)s$.
+	- For example, **())**)() has $2 (s$ and $4)s$. It has a prefix $())$ where the number of right parenthesis is greater than the number of left parenthesis. If we swap each of them, then the expression will be **)((**)(). There are $2+1=3$ $(s$ and $4-1=3$ $)s$.
 	- The number of invalid parenthesis is $(2n)C(n+1)$
 - Then the formula is:
 
