@@ -1,17 +1,20 @@
 ## Binomial coefficients
-- The binomial coefficients $\begin{pmatrix} n\\r \end{pmatrix}$ equals the number of ways to choose a subset of $r$ elements from a set of $n$ elements.
+- The binomial coefficient equals the number of ways to choose a subset of $r$ elements from a set of $n$ elements.
 
 ### Formula 1
 - Binomial coefficients can be recursively calculated as follows: 
 $$
 \begin{pmatrix}
-n\\r
+n \\
+r
 \end{pmatrix}=
 \begin{pmatrix}
-n-1\\r-1
+n-1 \\
+r-1
 \end{pmatrix}+
 \begin{pmatrix}
-n-1\\r
+n-1 \\
+r
 \end{pmatrix}
 $$
 	- The idea is to fix an element $x$ in the set.
@@ -20,10 +23,12 @@ $$
 - The base cases of the recursion are
 $$
 \begin{pmatrix}
-n\\0
+n \\
+0
 \end{pmatrix}=
 \begin{pmatrix}
-n\\n
+n \\
+n
 \end{pmatrix}=1
 $$
 	- There is always exactly one way to construct an empty subset and a subset containing all the elements.
@@ -31,7 +36,8 @@ $$
 ### Formula 2
 $$
 \begin{pmatrix}
-n\\r
+n \\
+r
 \end{pmatrix}=
 \frac{n!}{r!(n-r)!}
 $$
@@ -39,19 +45,50 @@ $$
 - As the order of the elements in the subset and outside the subset doesn't matter, the result is divided by $r!$ and $(n-r)!$
 $$
 \begin{pmatrix}
-n\\r
+n \\
+r
 \end{pmatrix}:
 \begin{pmatrix}
-n\\r-1
+n \\
+r-1
 \end{pmatrix}=
 \frac{n!}{r!(n-r)!}.\frac{(r-1)!(n-r+1)!}{n!}=\frac{n-r+1}{r}
 $$
-- Since $\begin{pmatrix}n\\0\end{pmatrix}$=1, we can calculate $r$ by multiplying $\frac{n-r+1}{r}$.
+- We can calculate the higher terms for $r$ by multiplying $\frac{n-r+1}{r}$.
 
 ### Properties
-- $\begin{pmatrix}n\\r\end{pmatrix}=\begin{pmatrix}n\\n-r\end{pmatrix}$
-- $\begin{pmatrix}n\\r\end{pmatrix}=\dfrac{n}{r}\begin{pmatrix}n-1\\r-1\end{pmatrix}$
-- $\begin{pmatrix}n\\0\end{pmatrix}+\begin{pmatrix}n\\1\end{pmatrix}+...+\begin{pmatrix}n\\n\end{pmatrix}=2^n$
+$$
+\begin{pmatrix}
+n \\
+r
+\end{pmatrix}=
+\begin{pmatrix}
+n \\
+n-r
+\end{pmatrix}
+$$
+$$\begin{pmatrix}
+n \\
+r
+\end{pmatrix}=
+\dfrac{n}{r}
+\begin{pmatrix}
+n-1 \\r-1
+\end{pmatrix}
+$$
+$$\begin{pmatrix}
+n \\
+0
+\end{pmatrix}+
+\begin{pmatrix}
+n \\
+1
+\end{pmatrix}+...+
+\begin{pmatrix}
+n \\
+n
+\end{pmatrix}=2^n
+$$
 
 
 ## Catalan numbers
@@ -72,23 +109,26 @@ $$C_n=\sum^{n-1}_{i=0}C_iC_{n-i-1}$$
 - Then the formula is:
 $$
 \begin{pmatrix}
-2n\\n
+2n \\
+n
 \end{pmatrix}-
 \begin{pmatrix}
-2n\\
+2n \\
 n+1
 \end{pmatrix}=
 \begin{pmatrix}
-2n\\n
+2n \\
+n
 \end{pmatrix}-
 \frac{n}{n+1}
 \begin{pmatrix}
-2n\\
+2n \\
 n
 \end{pmatrix}=
 \frac{1}{n+1}
 \begin{pmatrix}
-2n\\n
+2n \\
+n
 \end{pmatrix}
 $$
 
