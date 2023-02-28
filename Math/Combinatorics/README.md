@@ -100,6 +100,72 @@ n
 \end{pmatrix}=2^n
 $$
 
+## Stars and Bars
+
+### Case 1
+
+$$
+x_1+x_2+...+x_r=n,\ \ where\ x_i\ge1
+$$
+- Given $n$ and $r$, we have to find out the number of solutions the equation has.
+
+$$
+*.*.*.*.*.*.*.*.*
+$$
+
+$$
+***\ |**\ |**\ |**\ \ \rightarrow\ \ 3+2+2+2=9
+$$
+
+$$
+*\ |*****\ |*\ |**\ \ \rightarrow\ \ 1+5+1+2=9
+$$
+
+- For example, $n=9, r=4$, we can think there are $8\ stars$. Then there are $n - 1=8$ spaces where we have to put $r-1=3$ bars. We can compare the bars with $+$ sign and the chunk of stars with $x_i$.
+- The number of solutions
+
+$$
+\begin{pmatrix}
+n-1 \\
+r-1
+\end{pmatrix}
+$$
+
+### Case 2
+
+$$
+x_1+x_2+...+x_r=n,\ \ where\ x_i\ge0
+$$
+
+- In this case, if we compare with the stars and bars format, there are $n+r-1$ spaces, meaning there can be consecutive bars where the corresponding $x_i=0$. We have to put $r-1$ bars in those spaces.
+- For example, $n=9, r=4$
+
+$$
+***\ |****\ |\ |**\ \ \rightarrow\ \ 3+4+0+2=9
+$$
+- The number of solutions
+
+$$
+\begin{pmatrix}
+n+r-1 \\
+r-1
+\end{pmatrix}
+$$
+
+## Inclusion-Exclusion
+- Inclusion-exclusion is a technique that can be used for counting the size of a union of sets where the sizes of the intersections are known, and vice versa.
+
+$$
+|A\cup B|=|A|+|B|-|A\cap B|
+$$
+
+$$
+|A \cup B \cup C|=|A|+|B|+|C|-|A\cap B|-|B\cap C|-|C\cap A|+|A\cap B\cap C|
+$$
+
+- In the general case, the size of the union $(X_1 \cup X_2 \cup...\cup X_n)$ can be calculated by going through all possible intersections of some of the elements of the set $\{X_1, X_2, ..., X_n\}$.
+	- If the intersection contains an odd number of sets, its size is added to the answer.
+	- Otherwise, the size is subtracted from the answer.
 
 ## Catalan numbers
 - The Catalan number $C_n$ equals the number of valid parentheses expressions that consist of $n$ left parentheses and $n$ right parentheses.
@@ -143,4 +209,4 @@ n
 \end{pmatrix}
 $$
 
-## Inclusion-Exclusion
+
