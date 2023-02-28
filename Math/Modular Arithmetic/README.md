@@ -36,7 +36,7 @@ $$
 	   &=x^{k\ mod\ (m - 1)}\ mod\ m\ \ \ \ [r=k-a*(m - 1)=k\ mod\ (m - 1)]
   \end{align}
  $$
-
+ 
 ## Euler's Theorem
 - The theorem states that if $gcd(x, m)=1$, then: $$x^{\phi(m)}\ mod\ m=1$$
 - It's a general form of Fermat's Theorem, because if x is a prime, then $\phi(m)=m - 1$.
