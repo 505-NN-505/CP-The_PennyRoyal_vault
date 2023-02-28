@@ -3,6 +3,7 @@
 
 ### Formula 1
 - Binomial coefficients can be recursively calculated as follows: 
+
 $$
 \begin{pmatrix}
 n \\
@@ -17,10 +18,12 @@ n-1 \\
 r
 \end{pmatrix}
 $$
-	- The idea is to fix an element $x$ in the set.
+
+- The idea is to fix an element $x$ in the set.
 		- If $x$ is included in the subset, we have to choose $r - 1$ elements from $n -1$ elements.
 		- If x is not included in the subset, we have to choose $r$ elements from $n - 1$ elements.
 - The base cases of the recursion are
+
 $$
 \begin{pmatrix}
 n \\
@@ -31,7 +34,8 @@ n \\
 n
 \end{pmatrix}=1
 $$
-	- There is always exactly one way to construct an empty subset and a subset containing all the elements.
+
+- There is always exactly one way to construct an empty subset and a subset containing all the elements.
 
 ### Formula 2
 $$
@@ -57,6 +61,7 @@ $$
 - We can calculate the higher terms for $r$ by multiplying $\frac{n-r+1}{r}$.
 
 ### Properties
+
 $$
 \begin{pmatrix}
 n \\
@@ -67,15 +72,18 @@ n \\
 n-r
 \end{pmatrix}
 $$
+
 $$\begin{pmatrix}
 n \\
 r
 \end{pmatrix}=
 \dfrac{n}{r}
 \begin{pmatrix}
-n-1 \\r-1
+n-1 \\
+r-1
 \end{pmatrix}
 $$
+
 $$\begin{pmatrix}
 n \\
 0
@@ -107,6 +115,7 @@ $$C_n=\sum^{n-1}_{i=0}C_iC_{n-i-1}$$
 	- For example, **())**)() has $2 ($ and 4 $)$s. It has a prefix $())$ where the number of right parenthesis is greater than the number of left parenthesis. If we swap each of them, then the expression will be **)((**)(). There are $2+1=3$ $(s$ and $4-1=3$ $)s$.
 	- The number of invalid parenthesis is $\begin{pmatrix}2n\\n+1\end{pmatrix}$
 - Then the formula is:
+
 $$
 \begin{pmatrix}
 2n \\
