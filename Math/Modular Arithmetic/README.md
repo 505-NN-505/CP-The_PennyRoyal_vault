@@ -27,15 +27,15 @@ $$
 	**Proof:**
 	Let  $k=a*(m - 1)+r.$ Then: 	
 	
-	$$
-  \begin{align}
-	  x^k\ mod\ m&=x^{a*(m - 1)+r}\ mod\ m\\
-	   &=(x^{m - 1})^a.x^r\ mod\ m \ \ \ \ [y^{ab}=(y^a)^b,\ y^{a+b}=y^a.y^b]\\
-	   &=1^a.x^r\ mod\ m \ \ \ \ \ \ \ \ \ \ \ \ \ \ [using\ fermat's]\\
-	   &=x^r\ mod\ m\\
+$$
+\begin{align}
+	  x^k\ mod\ m&=x^{a*(m - 1)+r}\ mod\ m \\
+	   &=(x^{m - 1})^a.x^r\ mod\ m \ \ \ \ [y^{ab}=(y^a)^b,\ y^{a+b}=y^a.y^b] \\
+	   &=1^a.x^r\ mod\ m \ \ \ \ \ \ \ \ \ \ \ \ \ \ [using\ fermat's] \\
+	   &=x^r\ mod\ m \\
 	   &=x^{k\ mod\ (m - 1)}\ mod\ m\ \ \ \ [r=k-a*(m - 1)=k\ mod\ (m - 1)]
-  \end{align}
- $$
+\end{align}
+$$
  
 ## Euler's Theorem
 - The theorem states that if $gcd(x, m)=1$, then: $$x^{\phi(m)}\ mod\ m=1$$
