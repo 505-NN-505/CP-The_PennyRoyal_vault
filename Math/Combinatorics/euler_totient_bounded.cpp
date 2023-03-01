@@ -32,10 +32,31 @@ void primeFactorize(ll n) {
     }
 }
 
+/*
+How many numbers are coprime to n upto r?
+*/
 void solve(void) {
-    primeFactorize(24);
-    for (auto x : pf)
-        cout << x.first << ' ' << x.second << '\n';
+	int n, r; cin >> n >> r;
+	primeFactorize(n);
+	int m = size(pf);
+	int phib = 0;
+	for (int j = 1; j < (1 << m); j++) {
+		int multiple = 1, bits = 0;
+		for (int i = 0; i < m; i++) {
+			if ((1 << i) & j) {
+				multiple *= pf[i].first;
+				bits++;
+			}
+		}
+		int cnt = r / multiple;
+		if (bits & 1) {
+			phib += cnt;
+		}
+		else {
+			phib -= cnt;
+		}
+	}
+	cout << max(0, r - phib) << '\n';
 }
 
 signed main(void) {
