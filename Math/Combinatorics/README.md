@@ -167,6 +167,41 @@ $$
 	- If the intersection contains an odd number of sets, its size is added to the answer.
 	- Otherwise, the size is subtracted from the answer.
 
+## Derangements
+- It counts the number of permutations where no element remains in its original place.
+$$
+f(n)=
+\begin{cases}
+	0 & n=1 \\
+	1 & n=2 \\
+	(n-1)(f(n-2)+f(n-1)) & n > 2
+\end{cases}
+$$
+
+- The recursive formula counts the number of derangements elements. If we pick any element, there are two options to deal with it. Either we replace it with an arbitrary element $x$ or replace element x with another element and then replace with our chosen element in the next call. There are $n - 1$ ways to choose element $x$.
+	- In option 1, as we replace element $x$ with our chosen element, there are $n - 2$ remaining elements to be fixed.
+	- In option 2, we replace element $x$ with another element but our chosen element, as a result we have yet to replace our chosen element from its position. In the next call, there are $n-1$ elements left, since element x can still be used to fix the remaining elements.
+- It can also be solved by inclusion-exclusion.
+$$
+n! - 
+\begin{pmatrix}
+n \\
+1
+\end{pmatrix}.(n - 1)!\ +
+\begin{pmatrix}
+n \\
+2
+\end{pmatrix}.(n - 2)!\ -\ ... \pm
+\begin{pmatrix}
+n \\
+n
+\end{pmatrix}.(n-n)!
+$$
+
+$$
+n!(1-\frac{n}{1!}+\frac{1}{2!}-\frac{1}{3!}+...\pm\frac{1}{n!}) \approx \frac{n!}{e}
+$$
+
 ## Catalan numbers
 - The Catalan number $C_n$ equals the number of valid parentheses expressions that consist of $n$ left parentheses and $n$ right parentheses.
 - For a parenthesis expression to be valid, we can choose any prefix, and it has to contain at least as many left parentheses as right parentheses. The complete expression has to have the equal number of left parentheses and right parentheses.

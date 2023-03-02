@@ -81,32 +81,21 @@ where xi > b from the count. Now there can be a
 single variable xi which violates xi<=b or there
 might be multiple.
 We can use Inclusion-Exclusion for this.
-O(2^(r + 1))
 */
 void solve(void) {
-	int n = 5, r = 3, a = 1, b = 2;
+	int n = 5, r = 3, a = 0, b = 2;
 	mi cntSolgteA = nCr(n - r * a + r - 1, r - 1);
-	debug(cntSolgteA.v);
 	mi cntSolgtB = 0;
 	int u = b + 1;
-	for (int i = 1; i < (1 << r); i++) {
-		int bits = 0;
-		for (int j = 0; j < r; j++) {
-			if ((1 << j) & i) {
-				bits++;
-			}
-		}
-		if (bits * u >= n) continue;
-		mi c = nCr(n - bits * u + bits - 1, bits - 1);
-		if (bits & 1) {
-			debug(i, bits, c.v);
+	for (int i = 1; i * u <= n; i++) {
+		mi c = nCr(r, i) * nCr(n - i * u + r - 1, r - 1);
+		if (i & 1) {
 			cntSolgtB += c;
 		}
 		else {
 			cntSolgtB -= c;
 		}
 	}
-	debug(cntSolgtB.v);
 	int ans = (cntSolgteA - cntSolgtB).v;
 	cout << ans << '\n';
 }
