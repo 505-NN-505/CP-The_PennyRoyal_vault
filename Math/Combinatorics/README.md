@@ -169,6 +169,7 @@ $$
 
 ## Derangements
 - It counts the number of permutations where no element remains in its original place.
+
 $$
 f(n)=
 \begin{cases}
@@ -182,6 +183,7 @@ $$
 	- In option 1, as we replace element $x$ with our chosen element, there are $n - 2$ remaining elements to be fixed.
 	- In option 2, we replace element $x$ with another element but our chosen element, as a result we have yet to replace our chosen element from its position. In the next call, there are $n-1$ elements left, since element x can still be used to fix the remaining elements.
 - It can also be solved by inclusion-exclusion.
+
 $$
 n! - 
 \begin{pmatrix}
