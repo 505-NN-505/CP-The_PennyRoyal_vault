@@ -36,7 +36,7 @@ void primeFactorize(ll n) {
 How many numbers are coprime to n upto r?
 */
 void solve(void) {
-	int n, r; cin >> n >> r;
+	int n = 30, r = 7;
 	primeFactorize(n);
 	int m = size(pf);
 	int phib = 0;

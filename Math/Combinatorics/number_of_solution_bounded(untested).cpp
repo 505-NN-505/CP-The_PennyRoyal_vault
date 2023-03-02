@@ -62,28 +62,59 @@ void preCalc(int n) {
 	}
 }
 
-inline int nCr(int n, int r) {
-	if (r > n) return INT_MAX;
+inline mi nCr(int n, int r) {
+	if (r > n) return mi(0);
 	mi res = factorial[n] * inverse_factorial[r] * inverse_factorial[n - r];
-	return res.v;
+	return res;
 }
 
 /*
-x1+x2+...+xr = n  where xi >= a
+x1+x2+...+xr = n  where a <= xi <= b
 how many solutions?
 ------------------------------------------------
+		count_of_solution_greater_than_a
 (x1-a)+(x2-a)+...+(xr-a) = n-ra  where xi-a >= 0
 y1+y2+...+yr = n-ra  where yi >= 0
+------------------------------------------------
+now we have to subtract the number of solutions
+where xi > b from the count. Now there can be a
+single variable xi which violates xi<=b or there
+might be multiple.
+We can use Inclusion-Exclusion for this.
+O(2^(r + 1))
 */
 void solve(void) {
-	int n = 5, r = 3, a = 1;
-	cout << nCr(n - r * a + r - 1, r - 1) << '\n';
+	int n = 5, r = 3, a = 1, b = 2;
+	mi cntSolgteA = nCr(n - r * a + r - 1, r - 1);
+	debug(cntSolgteA.v);
+	mi cntSolgtB = 0;
+	int u = b + 1;
+	for (int i = 1; i < (1 << r); i++) {
+		int bits = 0;
+		for (int j = 0; j < r; j++) {
+			if ((1 << j) & i) {
+				bits++;
+			}
+		}
+		if (bits * u >= n) continue;
+		mi c = nCr(n - bits * u + bits - 1, bits - 1);
+		if (bits & 1) {
+			debug(i, bits, c.v);
+			cntSolgtB += c;
+		}
+		else {
+			cntSolgtB -= c;
+		}
+	}
+	debug(cntSolgtB.v);
+	int ans = (cntSolgteA - cntSolgtB).v;
+	cout << ans << '\n';
 }
 
 signed main(void) {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    
     preCalc(nmax);
     solve();
 
