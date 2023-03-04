@@ -152,6 +152,42 @@ r-1
 \end{pmatrix}
 $$
 
+### Case 3: General
+
+$$
+\begin{align}
+x_1+x_2+...+x_r&=n&\ \ where\ x_i\ge a \\
+x_1-a+x_2-a+...+x_r-a&=n-r.a&\ \ where\ x_i-a\ge 0 \\
+y_1+y_2+...+y_r&=n-r.a&\ \ where\ y_i\ge 0
+\end{align}
+$$
+- The number of solutions
+
+$$
+\begin{pmatrix}
+n - ra + r - 1 \\
+r - 1
+\end{pmatrix}
+$$
+
+### Case 4: Garbage Partition
+
+$$
+\begin{align}
+x_1+x_2+...+x_r &\le n,\ \ where\ x_i\ge 0 \\
+x_1+x_2+...+x_r+x_{r+1} &= n,\ \ where\ x_i\ge 0
+\end{align}
+$$
+
+- The number of solutions
+
+$$
+\begin{pmatrix}
+n + r \\
+r
+\end{pmatrix}
+$$
+
 ## Inclusion-Exclusion
 - Inclusion-exclusion is a technique that can be used for counting the size of a union of sets where the sizes of the intersections are known, and vice versa.
 
@@ -201,7 +237,11 @@ n
 $$
 
 $$
-n!(1-\frac{n}{1!}+\frac{1}{2!}-\frac{1}{3!}+...\pm\frac{1}{n!}) \approx \frac{n!}{e}
+n!(1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+...\pm\frac{1}{n!}) \approx \frac{n!}{e}
+$$
+
+$$
+n!\sum^{n}_{k=1}(-1)^k
 $$
 
 ## Catalan numbers
@@ -245,5 +285,3 @@ n
 n
 \end{pmatrix}
 $$
-
-
