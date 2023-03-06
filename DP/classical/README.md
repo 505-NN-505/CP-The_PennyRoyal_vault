@@ -106,6 +106,7 @@ $$
 3. Base case: for any invalid index such that $i \lt 1$ or $j \lt 1$, $score[i][j] = -\infty$
 4. Final sub problem: $score[n][n]$
 - **Space Optimization**: Not all the rows need to be stored. From the transition, we can see that the current state depends on only the previous row $i - 1$ and the current row $i$. So storing only 2 rows for $score$ is sufficient.
+
 $$
 score[i][j]=
 \begin{cases}
@@ -123,6 +124,7 @@ $$
 	2. $score[i][0] = 0$
 4. Final sub problem: $score[n][w]$
 - **Space Optimization**: From the transition, we can see that the current state depends on only the previous row $i - 1$. So storing only 2 rows for $score$ is sufficient.
+
 $$
 score[i][j]=
 \begin{cases}
