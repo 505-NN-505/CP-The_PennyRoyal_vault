@@ -1,6 +1,6 @@
 - Suffix array solves the problem of sorting all the suffixes of a string lexicographically efficiently.
 - For the string, $BANANA$, we can get these following suffixes sorted like following:
-	$5 \rightarrow A$
+	$5 \rightarrow A$\\
 	$3 \rightarrow ANA$
 	$1 \rightarrow ANANA$
 	$0 \rightarrow BANANA$
