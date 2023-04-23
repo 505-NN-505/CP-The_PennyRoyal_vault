@@ -6,9 +6,9 @@
 - The essence of this algorithm is to avoid useless comparisons.
 	- For example, $S$ = $bacbababaabcbab$ and p = $ababaca$. We want to search $p$ in $S$.
 		- $c=6$: $S$ = $\textcolor{lime}{ababa}\textcolor{red}{b}acaab$
-		            $p$  = $\textcolor{lime}{ababa}\textcolor{red}{c}a$
+			- $p$  = $\textcolor{lime}{ababa}\textcolor{red}{c}a$
 	       - $c=7$: $S$ = $ab\textcolor{lime}{aba}\textcolor{yellow}{b}acaab$
-		            $p$  = $\textcolor{lime}{aba}\textcolor{yellow}{b}aca$
+		       - $p$  = $\textcolor{lime}{aba}\textcolor{yellow}{b}aca$
 	 - In $6^{th}$ comparison, we have a mismatch between $S$ and $p$ at index $5$. As the substring of $S$ starting from index $0$ mismatched with $p$, the naive algorithm would start checking for the substring starting from index $1$. But KMP optimizes this checking by using the idea of $\pi$.
 	 - When $\textcolor{red}{b}$ mismatched at index $5$ of string $S$, KMP already computed the longest proper substring $\textcolor{lime}{aba}$ that ends at index $4$ of string $S$ which also happens to be a prefix of string $p$. For the next comparison, we can ignore comparing $\textcolor{lime}{aba}$ with the prefixes of $p$. Thus, KMP compares index $5$ of $S$ with index $3$ of $p$.
 - There are two sceneries:
