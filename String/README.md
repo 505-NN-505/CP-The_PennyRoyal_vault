@@ -1,8 +1,8 @@
 ## KMP
 - For every index $i$ of a given string $S$, $\pi[i]$ is the length of the longest proper substring that ends at index $i$ which is also the prefix of the entire string.
 - For $S$ = "$aabaaab$", $\pi=[0, 1, 0, 1, 2, 2, 3]$
-	- $i = 5$: $S$ = "$\textcolor{red}{aa}ba\textcolor{red}{a\underline{a}}b$", $\pi=[0, 1, 0, 1, 2, \textcolor{red}{2}, 3]$
-	- $i = 6$: $S$ = "$\textcolor{red}{aab}a\textcolor{red}{aa\underline{b}}$", $\pi=[0, 1, 0, 1, 2, 2, \textcolor{red}{3}]$
+	- $i = 5$: $S$ = "$\textcolor{red}{aa}ba\textcolor{red}{aa}b$", $\pi=[0, 1, 0, 1, 2, \textcolor{red}{2}, 3]$
+	- $i = 6$: $S$ = "$\textcolor{red}{aab}a\textcolor{red}{aab}$", $\pi=[0, 1, 0, 1, 2, 2, \textcolor{red}{3}]$
 - The essence of this algorithm is to avoid useless comparisons.
 	- For example, $S$ = "$bacbababaabcbab$" and p = "$ababaca$". We want to search $p$ in $S$.
 		- $c=6$: $S$ = "$\textcolor{lime}{ababa}\textcolor{red}{b}acaab$"
@@ -28,42 +28,42 @@
 | S     | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | c | $\textcolor{red}{a}$ | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | $\textcolor{red}{a}$  | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | a  | y  |
 | Z     | 0 | 1 | 0 | 0 | 4 | 1 | 0 | 0 | 0 | $\textcolor{pink}{8}$ |   |   |   |   |   |   |   |   |   |
 
-It started comparing naively from index 9 and found the longest window $[9, 16]$ which is also a prefix $[0, 7]$ of the string $S$. Thus, $z[9] = 8$. Now the target is to reuse the z values of $[1, 7]$ to compute the z values of the window $[10, 16]$.
+1. It started comparing naively from index 9 and found the longest window $[9, 16]$ which is also a prefix $[0, 7]$ of the string $S$. Thus, $z[9] = 8$. Now the target is to reuse the z values of $[1, 7]$ to compute the z values of the window $[10, 16]$.
 
 | index | 0 | $\textcolor{cyan}{1}$ | 2 | 3 | 4 | 5 | 6 | 7 | 8 | $\textcolor{yellow}{9}$ | $\textcolor{cyan}{10}$ | 11 | 12 | 13 | 14 | 15 | $\textcolor{yellow}{16}$ | 17 | 18 |
 |-------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|
 | S     | $\textcolor{lime}{a}$ | $\textcolor{cyan}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | c | $\textcolor{red}{a}$ | $\textcolor{cyan}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | $\textcolor{red}{a}$  | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | a  | y  |
 | Z     | 0 | $\textcolor{cyan}{1}$ | 0 | 0 | 4 | 1 | 0 | 0 | 0 | 8 | $\textcolor{cyan}{1}$  |   |   |   |   |   |   |   |   |
 
-We can see index 1 and index 10 are similar. Thus, $z[10]=z[1]$.
+2. We can see index 1 and index 10 are similar. Thus, $z[10]=z[1]$.
 
 | index | 0 | 1 | $\textcolor{cyan}{2}$ | 3 | 4 | 5 | 6 | 7 | 8 | $\textcolor{yellow}{9}$ | 10 | $\textcolor{cyan}{11}$ | 12 | 13 | 14 | 15 | $\textcolor{yellow}{16}$ | 17 | 18 |
 |-------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|
 | S     | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{cyan}{b}$ | $\textcolor{lime}{x}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | c | $\textcolor{red}{a}$ | $\textcolor{red}{a}$  | $\textcolor{cyan}{b}$  | $\textcolor{red}{x}$  | $\textcolor{red}{a}$  | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | a  | y  |
 | Z     | 0 | 1 | $\textcolor{cyan}{0}$ | 0 | 4 | 1 | 0 | 0 | 0 | 8 | 1  | $\textcolor{cyan}{0}$  |   |   |   |   |   |   |   |
 
-We can see index 2 and index 11 are similar. Thus, $z[11]=z[2]$.
+3. We can see index 2 and index 11 are similar. Thus, $z[11]=z[2]$.
 
 | index | 0 | 1 | 2 | $\textcolor{cyan}{3}$ | 4 | 5 | 6 | 7 | 8 | $\textcolor{yellow}{9}$ | 10 | 11 | $\textcolor{cyan}{12}$ | 13 | 14 | 15 | $\textcolor{yellow}{16}$ | 17 | 18 |
 |-------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|
 | S     | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{cyan}{x}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | c | $\textcolor{red}{a}$ | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{cyan}{x}$  | $\textcolor{red}{a}$  | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | a  | y  |
 | Z     | 0 | 1 | 0 | $\textcolor{cyan}{0}$ | 4 | 1 | 0 | 0 | 0 | 8 | 1  | 0  | $\textcolor{cyan}{0}$  |   |   |   |   |   |   |
 
-We can see index 3 and index 12 are similar. Thus, $z[12]=z[3]$.
+4. We can see index 3 and index 12 are similar. Thus, $z[12]=z[3]$.
 
 | index | 0 | 1 | 2 | 3 | $\textcolor{cyan}{4}$ | 5 | 6 | 7 | 8 | $\textcolor{yellow}{9}$ | 10 | 11 | 12 | $\textcolor{cyan}{13}$ | 14 | 15 | $\textcolor{yellow}{16}$ | 17 | 18 |
 |-------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|
 | S     | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | $\textcolor{cyan}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | c | $\textcolor{red}{a}$ | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | $\textcolor{cyan}{a}$  | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | a  | y  |
 | Z     | 0 | 1 | 0 | 0 | $\textcolor{cyan}{4}$ | 1 | 0 | 0 | 0 | 8 | 1  | 0  | 0  | $\textcolor{cyan}{4}$  |   |   |   |   |   |
 
-Index $4$ and index $13$ are similar. Thus, $z[13] = z[4]$. But $13 + z[4] = 17$ exceeds the right boundary of the current window $[9, 16]$.
+5. Index $4$ and index $13$ are similar. Thus, $z[13] = z[4]$. But $13 + z[4] = 17$ exceeds the right boundary of the current window $[9, 16]$.
 
 | index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | $\textcolor{yellow}{13}$ | 14 | 15 | 16 | $\textcolor{yellow}{17}$ | 18 |
 |-------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|
 | S     | $\textcolor{lime}{a}$ | $\textcolor{lime}{a}$ | $\textcolor{lime}{b}$ | $\textcolor{lime}{x}$ | $\textcolor{lime}{a}$ | a | b | x | c | a | a  | b  | x  | $\textcolor{red}{a}$  | $\textcolor{red}{a}$  | $\textcolor{red}{b}$  | $\textcolor{red}{x}$  | $\textcolor{red}{a}$  | y  |
 | Z     | 0 | 1 | 0 | 0 | 4 | 1 | 0 | 0 | 0 | 8 | 1  | 0  | 0  | $\textcolor{pink}{5}$  |   |   |   |   |   |
 
-We already had a matching of $4$ characters for index 13, that's why we will start matching from index $5$ with index $17$ and increment the right boundary if they are matched, whereas the left boundary will be at index 13.
+6. We already had a matching of $4$ characters for index 13, that's why we will start matching from index $5$ with index $17$ and increment the right boundary if they are matched, whereas the left boundary will be at index 13.
 
 - Like this, all the values are computed. We find a new window whenever the current boundary is exceeded. Then we reuse the z values for the similar substrings in that window. We repeat these 2 steps.
 
