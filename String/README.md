@@ -1,16 +1,16 @@
 ## KMP
 - For every index $i$ of a given string $S$, $\pi[i]$ is the length of the longest proper substring that ends at index $i$ which is also the prefix of the entire string.
-- For $S$ = "$aabaaab$", $\pi=[0, 1, 0, 1, 2, 2, 3]$
-	- $i = 5$: $S$ = "$\textcolor{red}{aa}ba\textcolor{red}{aa}b$", $\pi=[0, 1, 0, 1, 2, \textcolor{red}{2}, 3]$
-	- $i = 6$: $S$ = "$\textcolor{red}{aab}a\textcolor{red}{aab}$", $\pi=[0, 1, 0, 1, 2, 2, \textcolor{red}{3}]$
+- For $S$ = $aabaaab$, $\pi=[0, 1, 0, 1, 2, 2, 3]$
+	- $i = 5$: $S$ = $\textcolor{red}{aa}ba\textcolor{red}{a\underline{a}}b$, $\pi=[0, 1, 0, 1, 2, \textcolor{red}{2}, 3]$
+	- $i = 6$: $S$ = $\textcolor{red}{aab}a\textcolor{red}{aa\underline{b}}$, $\pi=[0, 1, 0, 1, 2, 2, \textcolor{red}{3}]$
 - The essence of this algorithm is to avoid useless comparisons.
-	- For example, $S$ = "$bacbababaabcbab$" and p = "$ababaca$". We want to search $p$ in $S$.
-		- $c=6$: $S$ = "$\textcolor{lime}{ababa}\textcolor{red}{b}acaab$"
-		            $p$  = "$\textcolor{lime}{ababa}\textcolor{red}{c}a$"
-	       - $c=7$: $S$ = "$ab\textcolor{lime}{aba}\textcolor{yellow}{b}acaab$"
-		            $p$  =    "$\textcolor{lime}{aba}\textcolor{yellow}{b}aca$"
+	- For example, $S$ = $bacbababaabcbab$ and p = $ababaca$. We want to search $p$ in $S$.
+		- $c=6$: $S$ = $\textcolor{lime}{ababa}\textcolor{red}{b}acaab$
+		            $p$  = $\textcolor{lime}{ababa}\textcolor{red}{c}a$
+	       - $c=7$: $S$ = $ab\textcolor{lime}{aba}\textcolor{yellow}{b}acaab$
+		            $p$  =    $\textcolor{lime}{aba}\textcolor{yellow}{b}aca$
 	 - In $6^{th}$ comparison, we have a mismatch between $S$ and $p$ at index $5$. As the substring of $S$ starting from index $0$ mismatched with $p$, the naive algorithm would start checking for the substring starting from index $1$. But KMP optimizes this checking by using the idea of $\pi$.
-	 - When '$\textcolor{red}{b}$' mismatched at index $5$ of string $S$, KMP already computed the longest proper substring "$\textcolor{lime}{aba}$" that ends at index $4$ of string $S$ which also happens to be a prefix of string $p$. For the next comparison, we can ignore comparing "$\textcolor{lime}{aba}$" with the prefixes of $p$. Thus, KMP compares index $5$ of $S$ with index $3$ of $p$.
+	 - When $\textcolor{red}{b}$ mismatched at index $5$ of string $S$, KMP already computed the longest proper substring $\textcolor{lime}{aba}$ that ends at index $4$ of string $S$ which also happens to be a prefix of string $p$. For the next comparison, we can ignore comparing $\textcolor{lime}{aba}$ with the prefixes of $p$. Thus, KMP compares index $5$ of $S$ with index $3$ of $p$.
 - There are two sceneries:
 	- When there's a mismatch, we try to find the longest proper substring ending at the previous index of the mismatch, which also happens to be a prefix. We iteratively try to find this prefix until there's a match or empty string.
 	- When there's a match, we increment the value of $\pi$ for the index.
