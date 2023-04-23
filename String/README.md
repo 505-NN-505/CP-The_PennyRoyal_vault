@@ -17,9 +17,9 @@
 
 ## Z
 - For every index $i$ of a given string $S$, $z[i]$ is the length of the longest proper substring starting from the index $i$ which is also the prefix of the entire string.
-- For $S$ = "$aabaaab$", $z=[0, 1, 0, 2, 3, 1, 0]$
-	- $i = 3$: $S$ = "$\textcolor{red}{aa}b\textcolor{red}{\underline{a}a}ab$", $z=[0, 1, 0, \textcolor{red}{2}, 3, 1, 0]$
-	- $i = 4$: $S$ = "$\textcolor{red}{aab}a\textcolor{red}{\underline{a}ab}$", $z=[0, 1, 0, 2, \textcolor{red}{3}, 1, 0]$
+- For $S$ = $aabaaab$, $z=[0, 1, 0, 2, 3, 1, 0]$
+	- $i = 3$: $S$ = $\textcolor{red}{aa}b\textcolor{red}{\underline{a}a}ab$, $z=[0, 1, 0, \textcolor{red}{2}, 3, 1, 0]$
+	- $i = 4$: $S$ = $\textcolor{red}{aab}a\textcolor{red}{\underline{a}ab}$, $z=[0, 1, 0, 2, \textcolor{red}{3}, 1, 0]$
 - The essence of this algorithm is to avoid useless comparisons by reusing the z values of the similar substrings.
 
 ### Simulation
@@ -69,7 +69,7 @@
 
 ## Manacher
 - The algorithm calculates $p[i]$ being the length of the longest palindromic substring such that index $i$ is the center of that palindrome.
-- For any string, we convert it to an odd length string, as the algorithm can be implemented easily for an odd length string. As an example, the string "$babba$" will be converted into "$!b!a!b!b!a!$". The positions of the $!$ help find out the longest palindromic substrings of even length.
+- For any string, we convert it to an odd length string, as the algorithm can be implemented easily for an odd length string. As an example, the string $babba$ will be converted into $!b!a!b!b!a!$. The positions of the $!$ help find out the longest palindromic substrings of even length.
   
 | index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 |-------|---|---|---|---|---|---|---|---|---|---|----|
