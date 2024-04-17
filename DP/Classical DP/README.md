@@ -3,7 +3,8 @@
 - It checks all the possible ways by transiting from one state to another state, where a greedy solution only checks a particular optimal way.
 
 ## When to apply
-- When a problem has **Optimal Substructure** meaning the problems optimality depends on the optimality of the subproblems and **sub-problem overlapping** property, meaning the brute force will have to solve one particular sub-problem multiple times. For example, `fibonacci(5) = fibonacci(4) + fibonacci(3)`. Again, `fibonacci(4) = fibonacci(3) + fibonacci(2)`. The brute force will solve `fibonacci(3)` thrice to solve `fibonacci(5)`.
+- When a problem has the **Optimal Substructure** property meaning the problems optimality depends on the optimality of the subproblems and the **overlapping subproblem** property, meaning the brute force will have to solve one particular sub-problem multiple times.
+- For example, `fibonacci(5) = fibonacci(4) + fibonacci(3)`. Again, `fibonacci(4) = fibonacci(3) + fibonacci(2)`. The brute force will solve `fibonacci(3)` thrice to solve `fibonacci(5)`.
 
 ## Memoization
 - To tackle the sub-problem overlapping, DP uses memoization. It solves each sub-problem exactly once and stores them. Later, whenever we need this sub problem's result to solve any bigger sub problems, we can directly use the stored value.
