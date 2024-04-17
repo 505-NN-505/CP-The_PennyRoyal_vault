@@ -3,10 +3,10 @@
 - It checks all the possible ways by transiting from one state to another state, where a greedy solution only checks a particular optimal way.
 
 ## When to apply
-- When a problem has recursive **sub-problem overlapping** property, meaning the brute force will have to solve one particular sub-problem multiple times to solve the problem. For example, `fibonacci(5) = fibonacci(4) + fibonacci(3)`. Again, `fibonacci(4) = fibonacci(3) + fibonacci(2)`. The brute force will solve `fibonacci(3)` thrice to solve `fibonacci(5)`.
+- When a problem has **Optimal Substructure** meaning the problems optimality depends on the optimality of the subproblems and **sub-problem overlapping** property, meaning the brute force will have to solve one particular sub-problem multiple times. For example, `fibonacci(5) = fibonacci(4) + fibonacci(3)`. Again, `fibonacci(4) = fibonacci(3) + fibonacci(2)`. The brute force will solve `fibonacci(3)` thrice to solve `fibonacci(5)`.
 
-## Memorization
-- To tackle the sub-problem overlapping, DP uses memorization. It solves each sub-problem exactly once and stores them. Later, whenever we need this sub problem's result to solve any bigger sub problems, we can directly use the stored value.
+## Memoization
+- To tackle the sub-problem overlapping, DP uses memoization. It solves each sub-problem exactly once and stores them. Later, whenever we need this sub problem's result to solve any bigger sub problems, we can directly use the stored value.
 
 ## Sceneries
 - Maximize or minimize some value. Sometimes greedy solutions might be more efficient, in this case. If the range is smaller, we can use `dp`. Also, for testing greedy solutions, writing `dp` solution of this scenario is important.
